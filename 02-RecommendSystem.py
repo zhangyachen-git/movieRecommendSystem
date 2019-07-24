@@ -13,7 +13,7 @@ file = open('./data/merged.csv', 'r', encoding='utf-8')  # 记得读取文件时
 data = {}  # 存放每位用户评论的电影和评分
 for line in file.readlines():
     # 注意这里不是readline()
-    print(line)
+    # print(line)
     line = line.strip().split(',')
     # 如果字典中没有某位用户，则使用用户ID来创建这位用户
     if not line[0] in data.keys():
@@ -38,7 +38,7 @@ def Euclidean(user1, user2):
         if key in user2_data.keys():
             # 注意，distance越大表示两者越相似
             distance += pow(float(user1_data[key]) - float(user2_data[key]), 2)
-            print(distance)
+            # print(distance)
     return 1 / (1 + sqrt(distance))  # 这里返回值越大，相似度越大
 
 
@@ -48,7 +48,7 @@ def top10_similar(userID):
     for userid in data.keys():
         if not userid == userID:
             sim = Euclidean(userID, userid)
-            print(sim)
+            # print(sim)
             res.append((userid, sim))
     res.sort(key=lambda val: val[1], reverse=True)
 
